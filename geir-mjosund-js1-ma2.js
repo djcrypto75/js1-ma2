@@ -1,5 +1,5 @@
 // question 1
-const myFunctionExpression = function() {
+const myFunctionExpression = function () {
    console.log("Geir");
 };
 myFunctionExpression();
@@ -19,7 +19,7 @@ function callAfterAKeyIsPressed() {
 }
 
 // question 4
-const hoverOverButton = document.querySelector(".btn");
+const hoverOverButton = document.querySelector("button");
 hoverOverButton.addEventListener("mouseover", addClass);
 function addClass() {
    hoverOverButton.classList.add("hover");
@@ -33,10 +33,20 @@ function removeClass() {
 }
 
 // question 6
-const getDataAttribute = document.querySelector("li");
-getDataAttribute.addEventListener("mouseover", logDataValue);
-function logDataValue() {
-   console.dir(getDataAttribute.dataset.animal);
+const dataAttribute = document.querySelectorAll("li");
+for (let i = 0; i < dataAttribute.length; i++) {
+   dataAttribute[i].addEventListener("mouseover", loadAnimals);
+}
+
+function loadAnimals(event) {
+   const animalTag = event.target.dataset.animal;
+   if (animalTag === "goose") {
+      console.dir(dataAttribute[0].dataset.animal);
+   } else if (animalTag === "frog") {
+      console.dir(dataAttribute[1].dataset.animal);
+   } else if (animalTag === "elephant") {
+      console.dir(dataAttribute[2].dataset.animal);
+   }
 }
 
 // question 7
@@ -57,7 +67,7 @@ switch (animal) {
 
 // question 8
 const sheep = ["Malcolm", "Anders", "Marie"];
-sheep.forEach(function(sheep) {
+sheep.forEach(function (sheep) {
    console.log(sheep);
 });
 
